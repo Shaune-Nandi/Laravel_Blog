@@ -13,7 +13,7 @@
                 <h5 class="b-1">{{ $post->Post_Title }}</h5>
                 <small>
                     <span class="float-start">Posted on: {{ $post->created_at }}</span>
-                    <span class="float-end">Author: {{ $post->Post_User_ID }} </span>
+                    <span class="float-end">Author: {{ $post->user->name }} </span>
                 </small>
             </div>
             

@@ -42,7 +42,7 @@ class PostController extends Controller
             'Post_User_ID' => request('Post_User_ID')
         ]);
 
-        return redirect('/posts');
+        return redirect('/posts/posts-table');
     }
 
 

@@ -32,11 +32,11 @@
     </head>
     <body>        
         <ul class="nav">
-            <li class="nav-item"><a class="nav-link navbar-brand" href="#">The Blog</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Link_1</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Link_2</a></li>
-            <li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a></li>
+            <li class="nav-item"><a class="nav-link navbar-brand" href="{{ url('/') }}">The Blog</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" hidden>Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" hidden>Link_1</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" hidden>Link_2</a></li>
+            <li class="nav-item"><a class="nav-link disabled" href="#" hidden>Disabled</a></li>
         </ul>
 
         <div class="container">

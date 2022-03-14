@@ -20,10 +20,10 @@
       <tr>
         <form action="/posts/posts-table/{{ $post->id }}" method="post">
           @csrf
-          <td><input class="form-control" type="number" name="id" value="{{ $post->id }}"></dh>
-          <td><input class="form-control" type="text" name="Post_Title" value="{{ $post->Post_Title }}"></td>
+          <td><input readonly class="form-control-plaintext" type="number" name="id" value="{{ $post->id }}"></dh>
+          <td><input readonly class="form-control-plaintext" type="text" name="Post_Title" value="{{ $post->Post_Title }}"></td>
           <td>
-            <textarea class="form-control" name="Post_Description" rows="4">{{ $post->Post_Description }}</textarea>
+            <textarea readonly class="form-control-plaintext" name="Post_Description" rows="5">{{ $post->Post_Description }}</textarea>
           </td>
           <td>
             <button type="submit" name="btn_view" value="btn_view" class="btn btn-info mt-1 mb-1">View</button><br>

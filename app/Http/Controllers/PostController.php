@@ -5,14 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 
+
 class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::all();
+        //$posts = Post::all();
+        $posts = Post::orderBy('created_at', 'desc')->get();
         return view('post', compact('posts'));
     }
-
+//ff
 
     public function posts_table(){
         $posts = Post::all();

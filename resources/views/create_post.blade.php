@@ -11,7 +11,7 @@
         </div>
         <div class="form-group">
             <label for="Post_Description">Post Description</label>
-            <textarea class="form-control" name="Post_Description" rows="3"></textarea>
+            <textarea class="form-control" name="Post_Description" rows="10"></textarea>
         </div>
         <div class="form-group">
             <label for="Post_User_ID">Post User ID</label>

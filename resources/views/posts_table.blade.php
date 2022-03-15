@@ -16,6 +16,7 @@
   </thead>
 
   <tbody>
+    <!-- For displaying the tables -->
     @foreach ($posts as $post)
       <tr>
         <form action="/posts/posts-table/{{ $post->id }}" method="post">

@@ -20,7 +20,7 @@
             </div>
             
             <div class="card-body">
-                <p class="card-text">{{ $post->Post_Description }}</p>
+                <p class="card-text">{{ Str::words($post->Post_Description, 70) }}</p>
             </div>
 
             <div class="card-footer">

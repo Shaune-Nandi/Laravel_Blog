@@ -23,7 +23,7 @@ Route::get('/', function () {
 //     return view('child');
 // });
 
-//Route::get('/show_all_posts', [App\Http\Controllers\PostController::class, 'index'])->name('index');
+//Route::get('/show_all_posts', [App\Http\Controllers\PostController::class, 'index'])->name('index');   *** The ->name('index') is the name of the route ***
 
 Route::get('/posts', [PostController::class, 'index']);
 

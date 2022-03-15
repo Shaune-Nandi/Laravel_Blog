@@ -14,7 +14,6 @@ class PostController extends Controller
         $posts = Post::orderBy('created_at', 'desc')->get();
         return view('post', compact('posts'));
     }
-//ff
 
     public function posts_table(){
         $posts = Post::all();
@@ -55,8 +54,6 @@ class PostController extends Controller
 
     public function update(Request $request, Post $post)
     {
-
-        //dd(request()->all());
 
         request()->validate([
             'Post_Title' => 'required',

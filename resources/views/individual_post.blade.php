@@ -24,8 +24,12 @@
             <div class="card-footer">
                 <h6>Comments</h6>
                 @foreach($post->comments as $comment)
-                        <div class="d-flex justify-content-start px-3">{{ $comment->Comment_Description }}</div>
-                        <div class="d-flex justify-content-end px-3"><span>Comment by {{ $comment->user->name }} </span> </div>
+                    <div class="d-flex justify-content-start px-3">{{ $comment->Comment_Description }}</div>
+                    <div class="d-flex justify-content-end px-3">
+                        <p>Comment by <strong>{{ $comment->user->name }}</strong> ({{ now()->diffInDays($post->created_at) }} days 
+                        @php $x = now()->diffInHours($post->created_at) - today()->diffInHours($post->created_at); echo $x; @endphp hours ago)</p>
+                    </div>
+                    <hr><br>
                 @endforeach
                 <hr><br>
                 <form action="/posts/comments/{{ $post->id }}" method="post">

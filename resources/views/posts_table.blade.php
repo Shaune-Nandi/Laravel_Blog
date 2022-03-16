@@ -17,7 +17,15 @@
 
   <tbody>
     <!-- For displaying the tables -->
+
+
+
+    <!-- The current user can update the post... -->
+    
+    
     @foreach ($posts as $post)
+    @canany(['create', 'store', 'update', 'posts_table_actions'], $post))
+
       <tr>
         <form action="/posts/posts-table/{{ $post->id }}" method="post">
           @csrf
@@ -33,7 +41,10 @@
           </td>
          </form>
       </tr>
+      @endcanany
+
     @endforeach
+
   </tbody>
 </table>
 

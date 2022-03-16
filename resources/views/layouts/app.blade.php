@@ -22,7 +22,22 @@
     <body>        
         <ul class="nav bg-dark sticky-top" style="--mdb-bg-opacity: 0.75;">
             <li class="nav-item"><a class="nav-link navbar-brand" href="{{ url('/') }}" style="color: white;">The Blog</a></li>
-            <li class="nav-item"><a class="nav-link" href="#" hidden>Home</a></li>
+
+            @guest
+                <li class="nav-item"><a class="nav-link" href="{{ url('/register') }}">Register</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url('/login') }}">Login</a></li>
+            @endguest
+
+            @auth 
+                <li> 
+                    <form action="{{ url('/logout') }}" method="POST">
+                        @csrf   
+                        <input type="submit" class="btn btn-danger" name="logout" value="Logout">
+                    </form>
+                </li>
+
+            @endauth
+
             <li class="nav-item"><a class="nav-link" href="#" hidden>Link_1</a></li>
             <li class="nav-item"><a class="nav-link" href="#" hidden>Link_2</a></li>
             <li class="nav-item"><a class="nav-link disabled" href="#" hidden>Disabled</a></li>

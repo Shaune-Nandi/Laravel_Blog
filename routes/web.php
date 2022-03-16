@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,3 +48,11 @@ Route::get('/posts/{post}/delete', [PostController::class, 'destroy']);
 
 
 Route::post('/posts/comments/{post}', [CommentController::class, 'store']);
+
+route::get('/register', [UserController::class, 'create'])->middleware('guest');
+route::post('/register', [UserController::class, 'store'])->middleware('guest');
+
+route::get('/login', [UserController::class, 'login'])->middleware('guest');
+route::post('/login', [UserController::class, 'login_store'])->middleware('guest');
+
+route::post('/logout', [UserController::class, 'logout'])->middleware('auth');

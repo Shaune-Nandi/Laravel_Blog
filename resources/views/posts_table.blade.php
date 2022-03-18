@@ -3,6 +3,27 @@
 @section('Page_Title', 'Posts Table')
 
 @section('Body_Content')
+
+  @if(session('post_update_flash'))
+    <div class="alert alert-success">
+        <center>{{ session('post_update_flash') }}</center>                        
+    </div>
+  @endif
+
+  @if(session('post_create_flash'))
+    <div class="alert alert-success">
+        <center>{{ session('post_create_flash') }}</center>                        
+    </div>
+  @endif
+
+  @if(session('post_delete_flash'))
+    <div class="alert alert-success">
+        <center>{{ session('post_delete_flash') }}</center>                        
+    </div>
+  @endif
+
+
+  
 <center><a href="{{ __('/posts/create') }}"><button class="btn btn-primary m-3">Create New Post</button></a></center>
 <br>
 <table class="table table-hover table-bordered">
@@ -18,13 +39,12 @@
   <tbody>
     <!-- For displaying the tables -->
 
-
+    
 
     <!-- The current user can update the post... -->
     
     
     @foreach ($posts as $post)
-    @canany(['create', 'store', 'update', 'posts_table_actions'], $post))
 
       <tr>
         <form action="/posts/posts-table/{{ $post->id }}" method="post">
@@ -37,12 +57,10 @@
           <td>
             <button type="submit" name="btn_view" value="btn_view" class="btn btn-info mt-1 mb-1">View</button><br>
             <button type="submit" name="btn_update" value="btn_update" class="btn btn-success mt-1 mb-1">Update</button><br>
-            <button type="submit" name="btn_delete" value="btn_delete" class="btn btn-danger mt-1 mb-1">Delete</button><br>
+            <button type="submit" name="btn_delete" value="btn_delete" class="btn btn-danger mt-1 mb-1" data-toggle="confirmation">Delete</button><br>
           </td>
          </form>
       </tr>
-      @endcanany
-
     @endforeach
 
   </tbody>

@@ -4,7 +4,7 @@
     Post #{{ $post->id }}
 @endsection
 
-@section('Body_Content')
+@section('Body_Content_2')
 
 
 
@@ -21,8 +21,8 @@
                 <p class="card-text">{{ $post->Post_Description }}</p>
             </div>
 
-            <div class="card-footer">
-                <h6>Comments</h6>
+            <div class="card-footer"><br>
+                <center><h6>Comments</h6></center>
                 @foreach($post->comments as $comment)
                     <div class="d-flex justify-content-start px-3">{{ $comment->Comment_Description }}</div>
                     <div class="d-flex justify-content-end px-3">
@@ -31,15 +31,19 @@
                     </div>
                     <hr><br>
                 @endforeach
-                <hr><br>
-                <form action="/posts/comments/{{ $post->id }}" method="post">
-                    @csrf
-                    Enter your comment here:
-                    <textarea class="form-control" name="comment_text" id="comment_text" rows="3"></textarea>
-                    User ID: <strong class="text-danger">(***Temporary***)</strong><input class="form-control" type="number" name="Comment_User_ID">
-                    <center><button class="btn btn-success m-3" type="submit">Save</button></center> 
-                </form>
             </div>
         </div>
 
+@endsection
+
+@section('Comments_2')
+    <div class="card p-3 mt-3 mb-5">
+        <form action="/posts/comments/{{ $post->id }}" method="post">
+            @csrf
+            Your comments:
+            <textarea class="form-control" name="comment_text" id="comment_text" rows="14"></textarea>
+            User ID: <strong class="text-danger">(***Temporary***)</strong><input class="form-control" type="number" name="Comment_User_ID">
+            <center><button class="btn btn-success m-3" type="submit">Post Comment</button></center> 
+        </form>
+    </div>
 @endsection

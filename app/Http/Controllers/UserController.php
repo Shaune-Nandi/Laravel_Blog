@@ -60,6 +60,8 @@ class UserController extends Controller
     public function logout(){
         auth()->logout();
 
-        return redirect('/');
+        // session()->flash('logout_flash', 'You have successfully logged out');
+
+        return redirect('/')->with('logout_flash', 'You have successfully logged out');
     }
 }

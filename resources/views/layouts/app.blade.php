@@ -19,14 +19,63 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.css" rel="stylesheet"/>
     
     </head>
-    <body>        
-        <ul class="nav bg-dark sticky-top" style="--mdb-bg-opacity: 0.75;">
-            <li class="nav-item"><a class="nav-link navbar-brand" href="{{ url('/') }}" style="color: white;">The Blog</a></li>
-            <li class="nav-item"><a class="nav-link" href="#" hidden>Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="#" hidden>Link_1</a></li>
-            <li class="nav-item"><a class="nav-link" href="#" hidden>Link_2</a></li>
-            <li class="nav-item"><a class="nav-link disabled" href="#" hidden>Disabled</a></li>
-        </ul>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" style="--mdb-bg-opacity: 0.75;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{{ url('/') }}">The Blog</a>
+
+                <!-- Left Side of the Navbar -->
+
+                <!--
+
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link" href="#">Features</a>
+                        <a class="nav-link" href="#">Pricing</a>
+                        <a class="d-flex justify-content-end nav-link disabled">Disabled</a>
+                    </div>
+                </div>
+
+                -->
+
+
+
+
+
+                <!-- Centre -->
+                @auth
+                    <div class="navbar-nav">
+                        <span class="nav-link">{{auth()->user()->name}} - {{ auth()->user()->role }}<span>
+                    </div>
+                @endauth
+
+
+
+
+
+                <!-- Right Side of the Navbar -->
+                <div class="navbar-nav">
+                    @guest
+                        <a class="nav-link" href="{{ url('/register') }}">Register</a>
+                        <a class="nav-link" href="{{ url('/login') }}">Log in</a>
+                    @endguest
+
+                    @auth 
+                        <form action="{{ url('/logout') }}" method="POST">
+                            @csrf
+                            <input type="submit" class="btn nav-link btn-outline-danger" name="logout" value="Logout">
+                        </form>
+                    @endauth
+                </div>
+            </div>
+        </nav>
+
+
+
+    
+        
+
 
         <div class="container">
             <div class="row justify-content-center">
@@ -36,6 +85,18 @@
                         @yield('Body_Content')
                 </div>
             </div>
+
+            <div class="row justify-content-center">
+                <div class="col-md-9">
+                    @yield('Body_Content_2')
+                </div>
+                <div class="col-md-3">
+                    @yield('Comments_2')
+                </div>
+            </div>
         </div>
+
+
     </body>
 </html>
+

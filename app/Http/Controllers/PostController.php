@@ -43,7 +43,10 @@ class PostController extends Controller
             'Post_User_ID' => request('Post_User_ID')
         ]);
 
-        return redirect('/posts/posts-table');
+
+        return redirect('/posts/posts-table')->with('post_create_flash', 'Post created Successfully');
+
+
     }
 
 
@@ -67,7 +70,7 @@ class PostController extends Controller
             'Post_User_ID' => request('Post_User_ID')
         ]);
 
-        return redirect('posts/posts-table');
+        return redirect('posts/posts-table')->with('post_update_flash', 'Post updated Successfully');
     }
 
 
@@ -103,7 +106,7 @@ class PostController extends Controller
         {
             $post = Post::find(request('id'));
             $post->delete($post);
-            return redirect('/posts/posts-table');
+            return redirect('/posts/posts-table')->with('post_delete_flash', 'Post has been deleted');
         }
     }
 }

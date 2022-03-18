@@ -26,8 +26,7 @@
                 @foreach($post->comments as $comment)
                     <div class="d-flex justify-content-start px-3">{{ $comment->Comment_Description }}</div>
                     <div class="d-flex justify-content-end px-3">
-                        <p>Comment by <strong>{{ $comment->user->name }}</strong> ({{ now()->diffInDays($post->created_at) }} days 
-                        @php $x = now()->diffInHours($post->created_at) - today()->diffInHours($post->created_at); echo $x; @endphp hours ago)</p>
+                        <p>Comment by <strong>{{ $comment->user->name }}</strong> ({{ now()->diffInHours($post->created_at) }} hours ago)</p>
                     </div>
                     <hr><br>
                 @endforeach
@@ -42,7 +41,7 @@
             @csrf
             Your comments:
             <textarea class="form-control" name="comment_text" id="comment_text" rows="14"></textarea>
-            User ID: <strong class="text-danger">(***Temporary***)</strong><input class="form-control" type="number" name="Comment_User_ID">
+            <input class="form-control" type="number" name="Comment_User_ID" value="{{ auth()->user()->id }}" readonly hidden>
             <center><button class="btn btn-success m-3" type="submit">Post Comment</button></center> 
         </form>
     </div>

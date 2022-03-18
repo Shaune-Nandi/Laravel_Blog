@@ -46,7 +46,6 @@ Route::get('/posts/{post}', [PostController::class, 'show'])->middleware('auth')
 
 Route::get('/posts/{post}/delete', [PostController::class, 'destroy'])->middleware('auth', 'admin');
 
-
 Route::post('/posts/comments/{post}', [CommentController::class, 'store'])->middleware('auth');
 
 route::get('/register', [UserController::class, 'create'])->middleware('guest');

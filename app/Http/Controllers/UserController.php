@@ -28,7 +28,6 @@ class UserController extends Controller
 
         auth()->login($user);
 
-        return redirect('/posts');
     }
 
 
@@ -48,9 +47,17 @@ class UserController extends Controller
 
         if(auth()->attempt($userDetails)){
             session()->regenerate();
-            return redirect('/posts');
+
+            if (auth()->user()->role == 'Admin') {
+                return redirect('/posts/posts-table');
+            }else{
+                return redirect('/posts');
+            }
         }
         return view('/login');
+
+
+        
 
     }
 

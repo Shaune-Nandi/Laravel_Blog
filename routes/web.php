@@ -26,7 +26,7 @@ Route::get('/', function () {
 
 //Route::get('/show_all_posts', [App\Http\Controllers\PostController::class, 'index'])->name('index');   *** The ->name('index') is the name of the route ***
 
-Route::get('/posts', [PostController::class, 'index'])->middleware('auth');
+Route::get('/posts', [PostController::class, 'index'])->middleware('auth')->name('posts');
 
 Route::get('/posts/create', [PostController::class, 'create'])->middleware('auth', 'admin');
 
@@ -45,7 +45,6 @@ Route::post('/posts/posts-table/update/{post}', [PostController::class, 'update'
 Route::get('/posts/{post}', [PostController::class, 'show'])->middleware('auth');
 
 Route::get('/posts/{post}/delete', [PostController::class, 'destroy'])->middleware('auth', 'admin');
-
 
 Route::post('/posts/comments/{post}', [CommentController::class, 'store'])->middleware('auth');
 

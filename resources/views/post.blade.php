@@ -4,6 +4,13 @@
 
 @section('Body_Content')
     @php $count = 0; @endphp
+
+    @if(session('Admin_Message_Flash'))
+    <div class="alert alert-danger">
+        <center>{{ session('Admin_Message_Flash') }}</center>                        
+    </div>
+    @endif
+
     @foreach ($posts as $post)
     
         @php

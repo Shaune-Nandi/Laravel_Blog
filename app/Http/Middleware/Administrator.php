@@ -19,7 +19,7 @@ class Administrator
         if(auth()->user()->role == 'Admin'){
             return $next($request);
         }else{
-            return redirect()->route('login');
+            return redirect()->route('posts')->with('Admin_Message_Flash', 'The page you requested is only authorized to admins');
         }
     }
 }

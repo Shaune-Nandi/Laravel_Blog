@@ -4,6 +4,12 @@
     Login
 @endsection
 
+@if(session('Login_Message_Flash'))
+    <div class="alert alert-info">
+        <center>{{ session('Login_Message_Flash') }}</center>                        
+    </div>
+@endif
+
 
 @section('Body_Content')
     <form action="{{ __('/login') }}" method="POST">
